@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "salespage";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>salespage</h2>
+
+<table id="salestab" class="mdl-data-table" style="width:auto">
+    <thead>
+        <tr>
+            <th>SalesID</th>
+            <th>EmployeeID</th>
+            <th>ShopID</th>
+            <th>ProductID</th>
+            <th>CustomerID</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>SalesID</th>
+            <th>EmployeeID</th>
+            <th>ShopID</th>
+            <th>ProductID</th>
+            <th>CustomerID</th>
+        </tr>
+    </tfoot>
+</table>
+@*<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" rel="stylesheet" /> unit ui
+<link href="https://cdn.datatables.net/1.10.16/css/dataTables.uikit.min.css" rel="stylesheet" />*@
+
+
+
+    @*<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /> bootstrap3
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet" /> bootstrap4*@
+
+
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet" /> foundation*@
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css" rel="stylesheet" />    semantic ui *@
+    @*<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" /> jquery
+        <link href="https://cdn.datatables.net/1.10.16/css/dataTables.jqueryui.min.css" rel="stylesheet" />*@
+
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css" rel="stylesheet" /> @*material design*@
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css" rel="stylesheet" />
+
+    @section scripts
+{
+
+
+        @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>*@
+
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+        @*<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>*@
+        @*<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>      bootstrap3*@
+        @*<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>     bootstrap4*@
+        @*<script src="https://cdn.datatables.net/1.10.16/js/dataTables.foundation.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>*@
+
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>    @*material design*@
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+
+        @*<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.16/js/dataTables.uikit.min.js"></script>*@
+        <script>
+            $(document).ready(function () {
+                $('#salestab').DataTable({
+                    "ajax": {
+                        "url": "saleslist",
+                        "type": "Get",
+                        "datatype": "json"
+                    },
+                    "columns": [
+                        { "data": "SalesID" },
+                        { "data": "EmployeeID" },
+                        { "data": "ShopID" },
+                        { "data": "ProductID" },
+                        { "data": "CustomerID" }
+                    ]
+                });
+            });
+
+        </script>
+
+    }

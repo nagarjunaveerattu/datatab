@@ -1,0 +1,117 @@
+﻿
+@{
+
+
+    ViewBag.Title = "list";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>list</h2>
+<input type="button" name="delete" value="button" id="button" />
+
+<table id="tabdata" class="hover">
+    <thead>
+        @*<tr>
+                <th colspan="2">orderslist</th>
+                <th colspan="3">ordersdetails</th>
+            </tr>*@
+        <tr>
+            <th>orderid</th>
+            <th>ordername</th>
+            <th>Zipcode</th>
+            <th>address</th>
+            <th>userid</th>
+        </tr>
+    </thead>
+</table>
+<input type="button" name="show" value="show" id="show" />
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-grid.min.css" rel="stylesheet" />*@
+
+<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            //$('#show tfoot th').each(function () {
+            //    var title = $(this).text();
+            //    $(this).html('<input type="text" placeholder="search' + title + '" />');
+            //});
+
+
+            //$('#show').click(function () {
+            var dt = $('#tabdata').DataTable(
+                {
+                    //"lengthMenu":[[50,50,50,-1], [50,50,50,"All"]],
+                    //"paging": false,
+                    //"ordering": false,
+                    //"info": false,
+                    //"dom": '<"top"i>rt<"bottom"flp><"clear">',
+                    //"pagingType":"simple_numbers",
+                    //"scrollY": 200,
+                    //"scrollX": true,
+                    "StateSave": true,
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+                    },
+                    //"paging": false,
+                    //"searching": false,
+
+                    "ajax": {
+                        "url": "orderslist",
+                        "type": "Get",
+                        "datatype": "json",
+
+
+                    },
+                    "columns": [
+                        { "data": "orderid" },
+                        { "data": "ordername" },
+                        { "data": "Zipcode" },
+                        { "data": "address" },
+                        { "data": "userid" }
+
+                    ]
+                });
+            //$('#tabdata tbody').on('click', 'tr', function () {
+            //    if ($(this).hasClass('selected')) {
+            //        $(this).removeClass('selected');
+            //    }
+            //    else {
+            //        table.$('tr.selected').removeClass('selected');
+            //        $(this).addClass('selected');
+            //    }
+            //});
+
+        });
+
+
+
+                            //    var add = 1;
+                            //    $('addrow').on('click', function () {
+                            //        dt.row.add([
+                            //            add + '.1',
+                            //            add + '.2',
+                            //            add + '.3',
+                            //            add + '.4',
+                            //            add + '.5'
+                            //        ]).draw(false);
+                            //        add++;
+                            //    });
+                            //    $('#addrow').click();
+                            //});
+                            //$('#tabdata thead').on('click', 'tr', function () {
+                            //    var datas = table.row(this).datas();
+                            //    alert('you clicked on' + datas[ tabdata.columns.orderid] + '\'s rows');   });
+
+
+
+    </script>
+}
+
